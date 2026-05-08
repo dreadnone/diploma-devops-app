@@ -17,8 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Login to Yandex Container Registry
-        run: echo "${{ secrets.YC_SA_KEY }}" | docker login cr.yandex --username json_key --password-stdin
+           - name: Login to Yandex Container Registry
+        run: echo '${{ secrets.YC_SA_KEY }}' | docker login cr.yandex --username json_key --password-stdin
       
       - name: Extract metadata
         id: meta
