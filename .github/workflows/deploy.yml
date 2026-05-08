@@ -35,7 +35,7 @@ jobs:
             docker push $REGISTRY/$IMAGE_NAME:latest
           fi
 
-  deploy:
+     deploy:
     needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
@@ -45,7 +45,7 @@ jobs:
         with:
           host: 111.88.246.67
           username: ubuntu
-          key: ${{ secrets.BASTION_SSH_KEY }}
+          password: ${{ secrets.BASTION_PASSWORD }}
           script: |
             cd ~/
             TAG_NAME=${GITHUB_REF#refs/tags/}
